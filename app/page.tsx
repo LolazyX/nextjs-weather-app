@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 
 //For Navbar
 import { Separator } from "@/components/ui/separator"
@@ -32,10 +33,10 @@ export default function Home() {
     <div>
       <div className="h-[100dvh] w-full bg-red">
         {/** Navbar */}
-        <div className="grid grid-cols-2 px-6 py-3 bg-black">
+        <div className="grid grid-cols-2 px-8 py-4 bg-black">
           <div className="flex items-center">
             <WiFog className="text-3xl h-fit"/> 
-            <h1 className="text-xl font-semibold">Weather</h1>
+            <h1 className="text-xl font-bold">Weather</h1>
           </div>
           <div className="flex justify-end items-center space-x-3">
             <div>
@@ -47,12 +48,14 @@ export default function Home() {
               </RippleButton>
             </div>
             <div>
-            <RainbowButton className="font-semibold h-full py-2">
-              <div><FaGithub className="text-lg mr-1"/></div>
-              <div className="md:text-sm">
-                Github
-              </div>
-            </RainbowButton>
+            <Link href="https://github.com/LolazyX/nextjs-weather-app" target="_blank">
+              <RainbowButton className="font-semibold h-full py-2">
+                <div><FaGithub className="text-lg mr-1"/></div>
+                <div className="md:text-sm">
+                  Github
+                </div>
+              </RainbowButton>
+            </Link>
             </div>
           </div>
         </div>
@@ -61,7 +64,7 @@ export default function Home() {
         <Content search={searchSubmit}/>
       </div>
       {/** Background */}
-      <div className="absolute inset-0 -z-20 h-full w-full bg-black bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div className="absolute inset-0 -z-20 h-full w-full bg-black bg-[radial-gradient(#1f2937_1px,transparent_1px)] [background-size:16px_16px]"></div>
     </div>
   );
 }

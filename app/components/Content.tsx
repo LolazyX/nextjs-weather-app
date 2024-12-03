@@ -12,6 +12,7 @@ import { WiRaindrops } from "react-icons/wi";
 import { WiThermometer } from "react-icons/wi";
 import { WiVolcano } from "react-icons/wi";
 import Loading from "./Loading";
+import Infomation from "./Infomation";
 
 type Props = {
     search: string
@@ -56,7 +57,7 @@ export default function Content({search}: Props) {
             <div className='mx-6 my-3 grid grid-cols-2 h-[90%] space-x-6 items-center'>
                 <div className="text-center space-y-3">
                     <div>
-                        <h2 className="text-5xl mt-6 font-semibold ">{`${weather?.name}, ${weather?.country}`}</h2>
+                        <h2 className="text-5xl font-semibold ">{`${weather?.name}, ${weather?.country}`}</h2>
                     </div>
                     <div>
                         <Clock date={dateBuild(weather?.datetime)} format={'dddd, MMMM Mo, YYYY, h:mm:ss A'} ticking={true}/>
@@ -78,31 +79,36 @@ export default function Content({search}: Props) {
                             <div className="grid grid-cols-2 px-6 py-3 space-x-6">
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"} >
                                     <div className="flex justify-center items-center">
-                                        <WiStrongWind className="text-4xl mr-3"/> {Math.trunc(weather?.wind_speed)} km/s
+                                        <WiStrongWind className="text-4xl mr-3"/> {Math.trunc(weather?.wind_speed)}km/s
+                                        <Infomation className="ml-3" text="Wind speed"/>
                                     </div>
                                 </MagicCard>
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"} >
                                     <div className="flex justify-center items-center">
-                                        <WiCloud className="text-4xl mr-3"/> {weather?.clouds} %
+                                        <WiCloud className="text-4xl mr-3"/> {weather?.clouds}%
+                                        <Infomation className="ml-3" text="Cloudiness"/>
                                     </div>
                                 </MagicCard>
                             </div>
                             <div className="grid grid-cols-2 px-6 py-3 space-x-6">
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"}>
                                     <div className="flex justify-center items-center">
-                                        <WiRaindrops className="text-6xl mr-3"/> {weather?.pressure} hPa
+                                        <WiRaindrops className="text-5xl mr-3"/> {weather?.pressure}hPa
+                                        <Infomation className="ml-3" text="Pressure"/>
                                     </div>
                                 </MagicCard>
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"}>
                                     <div  className="flex justify-center items-center">
-                                        <WiThermometer className="text-3xl mr-3"/> {weather?.humidity} %
+                                        <WiThermometer className="text-3xl mr-3"/> {weather?.humidity}%
+                                        <Infomation className="ml-3" text="Humidity"/>
                                     </div>
                                 </MagicCard>
                             </div>
                             <div className="px-6 py-3 flex justify-center items-center">
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"}>
                                     <div className="flex justify-center items-center">
-                                        <WiVolcano  className="text-3xl mr-5"/> {weather?.visibility / 1000} km
+                                        <WiVolcano  className="text-3xl mr-5"/> {weather?.visibility / 1000}km
+                                        <Infomation className="ml-3" text="Visibility"/>
                                     </div>
                                 </MagicCard>
                             </div>
