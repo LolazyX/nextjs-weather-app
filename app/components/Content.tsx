@@ -35,7 +35,7 @@ type Data = {
 
 export default function Content({search}: Props) {
     const [previousSearch, setPreviousSearch] = useState('')
-    const [weather, setWeather] =  useState<Data | undefined>()
+    const [weather, setWeather] =  useState<Data>()
     const initWeather = async () => {
         await getWeatherData(search).then((res) => {
             setPreviousSearch(search)
