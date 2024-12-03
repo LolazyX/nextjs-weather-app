@@ -21,25 +21,25 @@ export default function WeatherIcon({id, className, text}: Props) {
             
         )
     //Group 3xx: Drizzle
-    } else if (`${id}`[0] == '2') {
+    } else if (`${id}`[0] == '3') {
         return (
             <span><WiShowers className={className}/> {text}</span>
            
         )
     //Group 5xx: Rain
-    } else if (`${id}`[0] == '2') {
+    } else if (`${id}`[0] == '5') {
         return (
             <span><WiRain className={className}/> {text}</span>
             
         )
     //Group 6xx: Snow
-    } else if (`${id}`[0] == '2') {
+    } else if (`${id}`[0] == '6') {
         return (
             <span><WiSnow className={className}/> {text}</span>
             
         )
     //Group 7xx: Atmosphere
-    } else if (`${id}`[0] == '2') {
+    } else if (`${id}`[0] == '7') {
         return (
             <span><WiSnowflakeCold className={className}/> {text}</span>
             
