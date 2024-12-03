@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 'use client'
 
 import { useState, useEffect } from "react";
@@ -35,7 +36,7 @@ type Data = {
 
 export default function Content({search}: Props) {
     const [previousSearch, setPreviousSearch] = useState('')
-    const [weather, setWeather] =  useState<Data | undefined>(undefined)
+    const [weather, setWeather] =  useState<Data | undefined>()
     const initWeather = async () => {
         await getWeatherData(search).then((res) => {
             setPreviousSearch(search)
@@ -73,11 +74,8 @@ export default function Content({search}: Props) {
                     <div>
                         Feel like {`${Math.trunc(weather?.feels_like - 273.15)}°C`}
                     </div>
-                    
                 </div>
-                
                 <div className="flex items-center">
-                    
                         <div className="grid grid-rows-3">
                             <div className="grid grid-cols-2 px-6 py-3 space-x-6">
                                 <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 w-80" gradientColor={"#6b7280"} >
