@@ -6,10 +6,11 @@ export async function getWeatherData(cityName: string) {
         throw new Error("Api = " + api)
     }
 
-    const {name, dt, sys, main, weather, wind, clouds, visibility } = await res.json()
+    const {name, dt, sys, main, weather, wind, clouds, visibility, timezone } = await res.json()
     return {
         name,
-        datetime: dt,  
+        datetime: dt,
+        timezone,
         country: sys.country,
         temp: main.temp,
         wind_speed: wind.speed,

@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { MagicCard } from "@/components/ui/magic-card";
 import { getWeatherData } from '../backoffice/getWeatherData';
 import WeatherIcon from "./WeatherIcon";
-import dateBuild from "../handles/dateBuild";
-import Clock from 'react-live-clock';
+import dateBuild from "../../lib/dateBuild";
 import { WiStrongWind } from "react-icons/wi";
 import { WiCloud } from "react-icons/wi";
 import { WiRaindrops } from "react-icons/wi";
@@ -13,6 +12,7 @@ import { WiThermometer } from "react-icons/wi";
 import { WiVolcano } from "react-icons/wi";
 import Loading from "./Loading";
 import Infomation from "./Infomation";
+import Clock from 'react-live-clock';
 
 type Props = {
     search: string
@@ -21,6 +21,7 @@ type Props = {
 type Data = {
     name: string
     datetime: number
+    timezone: number
     country: string
     temp: number
     wind_speed: number
@@ -60,7 +61,10 @@ export default function Content({search}: Props) {
                         <h2 className="text-5xl font-semibold cursor-default">{`${weather?.name}, ${weather?.country}`}</h2>
                     </div>
                     <div>
-                        <Clock date={dateBuild(weather?.datetime)} format={'dddd, MMMM Mo, YYYY, h:mm:ss A'} ticking={true}/>
+                        
+                        {dateBuild()}
+                        
+                        
                     </div>
                     <div className="text-[5rem] flex justify-center cursor-default">
                         <div>
