@@ -35,7 +35,6 @@ type Data = {
 
 export default function Content({search}: Props) {
     const [previousSearch, setPreviousSearch] = useState('')
-    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     const [weather, setWeather] =  useState<Data | undefined>()
     const initWeather = async () => {
         await getWeatherData(search).then((res) => {
