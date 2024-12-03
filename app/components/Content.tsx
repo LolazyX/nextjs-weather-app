@@ -51,9 +51,8 @@ export default function Content({search}: Props) {
         }
     }, [search])
 
-    return (
-        <>
-        {weather !== undefined ? 
+    if (weather) {
+        return(
             <div className='mx-6 my-3 grid grid-cols-2 h-[90%] space-x-6 items-center'>
                 <div className="text-center space-y-3">
                     <div>
@@ -110,9 +109,10 @@ export default function Content({search}: Props) {
                         </div>
                 </div>
             </div>
-            :
+        )
+    } else {
+        return(
             <Loading />
-        }
-       </>
-    )
+        )
+    }
 }
