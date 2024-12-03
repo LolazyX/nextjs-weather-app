@@ -1,5 +1,3 @@
-
-
 export async function getWeatherData(cityName: string) {
     const api = process.env.NEXT_PUBLIC_OPEN_WEATHER_API
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}`)
