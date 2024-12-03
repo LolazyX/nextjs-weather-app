@@ -5,7 +5,7 @@ export async function getWeatherData(cityName: string) {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}`)
 
     if (!res.ok) {
-        throw new Error('can not get data')
+        throw new Error(api)
     }
 
     const {name, dt, sys, main, weather, wind, clouds, visibility } = await res.json()
