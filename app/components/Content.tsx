@@ -14,7 +14,7 @@ import { WiVolcano } from "react-icons/wi";
 import Loading from "./Loading";
 
 type Props = {
-    search: any
+    search: string
 }
 
 type Data = {
@@ -34,7 +34,7 @@ type Data = {
 }
 
 export default function Content({search}: Props) {
-    const [previousSearch, setPreviousSearch] = useState()
+    const [previousSearch, setPreviousSearch] = useState('')
     const [weather, setWeather] =  useState<Data>()
     const initWeather = async () => {
         await getWeatherData(search).then((res) => {
