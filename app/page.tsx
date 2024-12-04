@@ -7,10 +7,9 @@ import Link from 'next/link'
 import { Separator } from "@/components/ui/separator"
 import { Search } from "@/components/ui/search"
 import { RainbowButton } from "@/components/ui/rainbow-button";
-import RippleButton from "@/components/ui/ripple-button";
 import { WiFog } from "react-icons/wi";
 import { FaGithub } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
+
 import Content from "./components/Content";
 import { cityWords } from "@/lib/cityWords";
 
