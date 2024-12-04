@@ -12,7 +12,6 @@ import { WiThermometer } from "react-icons/wi";
 import { WiVolcano } from "react-icons/wi";
 import Loading from "./Loading";
 import Infomation from "./Infomation";
-import Clock from 'react-live-clock';
 
 type Props = {
     search: string
