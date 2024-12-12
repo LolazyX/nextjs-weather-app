@@ -53,7 +53,7 @@ export default function Content() {
 
     if (weather) {
         return(
-            <div className='px-4 py-8 lg:px-8 lg:py-4 grid lg:grid-cols-2 lg:h-[90%] space-y-4 lg:space-y-0 lg:space-x-6 items-center'>
+            <div className='px-4 py-4 lg:px-8 lg:py-4 grid lg:grid-cols-2 lg:h-[90%] space-y-4 lg:space-y-0 lg:space-x-6 items-center'>
                 <div className="text-center space-y-2 lg:space-y-3">
                     <div>
                         <h2 className="text-5xl font-semibold cursor-default">{`${weather?.name}, ${weather?.country}`}</h2>
@@ -92,7 +92,7 @@ export default function Content() {
                         <div className="grid grid-cols-2 lg:px-6">
                             <MagicCard className="flex-col items-center justify-center shadow-2xl whitespace-nowrap h-32 lg:w-80 border-l border-y rounded-l-xl lg:border lg:rounded-xl" gradientColor={"#6b7280"}>
                                 <div className="flex justify-center items-center cursor-default">
-                                    <WiRaindrops className="text-4xl lg:text-5xl mr-3"/> {weather?.pressure}hPa
+                                    <WiRaindrops className="text-5xl mr-3"/> {weather?.pressure}hPa
                                     <Infomation className="ml-3" text="Pressure"/>
                                 </div>
                             </MagicCard>
