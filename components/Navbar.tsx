@@ -53,7 +53,7 @@ export default function Navbar() {
     } 
 
     return (
-        <div className="sticky lg:static z-20 top-0 w-full">
+        <div className="sticky lg:static top-0 w-full">
             <div className="grid lg:grid-cols-2 px-4 py-2 lg:px-8 lg:py-4 bg-black space-y-2 lg:space-y-0 backdrop-filter backdrop-blur-md bg-opacity-80">
                 <div className="flex justify-between ">
                     <div className="flex items-center cursor-pointer">
