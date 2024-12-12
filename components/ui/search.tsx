@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from "react"
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import { FaSistrix } from "react-icons/fa6";
@@ -18,6 +17,13 @@ export const useFocusStore = create<FocusStoreType>()((set) => ({
 const Search = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
     const {isFocus, setIsFocus} = useFocusStore()
+
+    const handleBlur = () => {
+      setTimeout(() => {
+          setIsFocus(false);
+      }, 200);
+    };
+
     return(
       <div  className={cn(
         `flex h-9 rounded-xl border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors ${isFocus ? "border-white" : "border"} items-center` ,
@@ -27,7 +33,7 @@ const Search = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>
           <FaSistrix />
         </div>
         
-        <input className="bg-transparent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground md:text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" type={type} ref={ref} {...props} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)}/>
+        <input className="bg-transparent file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground md:text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" type={type} ref={ref} {...props} onFocus={() => setIsFocus(true)} onBlur={() => handleBlur()}/>
       </div>
     )
   }

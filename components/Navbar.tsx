@@ -23,7 +23,7 @@ export default function Navbar() {
     const [search, setSearch] = useState("");
     const {searchSubmit, setSearchSubmit} = useSearchStore();
     const [activeSearch, setActiveSearch] = useState<string[]>([]);
-    const isFocus = useFocusStore((state) => state.isFocus);
+    const {isFocus, setIsFocus} = useFocusStore();
   
     const handleSearch = (e: any) => {
       if (e.target.value == '') {
@@ -43,12 +43,17 @@ export default function Navbar() {
           setActiveSearch([]);
           setSearchSubmit(search);
           setSearch('');
-          console.log(searchSubmit);
       }
     }
-  
+
+    const onClick = (data: string) => {
+        setSearchSubmit(data);
+        setSearch("");
+        setActiveSearch([]);                    
+    } 
+
     return (
-        <div className="sticky lg:static top-0 w-full">
+        <div className="sticky lg:static z-20 top-0 w-full">
             <div className="grid lg:grid-cols-2 px-4 py-2 lg:px-8 lg:py-4 bg-black space-y-2 lg:space-y-0 backdrop-filter backdrop-blur-md bg-opacity-80">
                 <div className="flex justify-between ">
                     <div className="flex items-center cursor-pointer">
@@ -68,25 +73,21 @@ export default function Navbar() {
                 </div>
                 <div className="flex justify-end items-center lg:space-x-3">
                     <div className="grow lg:flex-none">
-                        <Search type="text" placeholder="Search" value={search} onChange={(e) => handleSearch(e)} onKeyDown={(e) => onKeyDown(e)} onBlur={() => setActiveSearch([])}/>
-                        { (activeSearch.length > 0 && isFocus) ? (
+                        <Search type="text" placeholder="Search" value={search} onChange={(e) => handleSearch(e)} onKeyDown={(e) => onKeyDown(e)}/>
+                        { (activeSearch.length > 0 && isFocus) && (
                             <div className="relative z-20">
                             <div className="absolute -top-2 px-3 py-4  bg-black border-x border-b border-white w-full rounded-b-xl flex flex-col shadow-xl">
                                 { activeSearch.map((data: string, index: number) => (
-                                <span key={data + index} className="cursor-pointer" onClick={()=>{
-                                    setActiveSearch([]);
-                                    setSearchSubmit(data);
-                                    setSearch("");
-                                }}>
+                                <span key={data + index} className="cursor-pointer" onClick={() => onClick(data)}>
                                     {data}
                                     {index != (activeSearch.length - 1) ? (
-                                    <Separator className="my-2"/>
+                                        <Separator className="my-2"/>
                                     ) : ""}
                                 </span>
                                 ))}
                             </div>
                             </div> 
-                        ) : ""}   
+                        )}
                     </div>
                     <div>
                     <Link href="https://github.com/LolazyX/nextjs-weather-app" target="_blank">
