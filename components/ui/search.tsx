@@ -10,7 +10,7 @@ const Search = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>
     const [isFocus, setIsFocus] = useState(false)
     return(
       <div  className={cn(
-        `flex h-9 w-full rounded-xl border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors ${isFocus ? "border-white" : "border"} items-center` ,
+        `flex h-9 rounded-xl border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors ${isFocus ? "border-white" : "border"} items-center` ,
         className
       )}>
         <div className="h-fit text-lg mr-2">

@@ -4,12 +4,12 @@ import {useState} from 'react'
 import { BsExclamationCircle } from "react-icons/bs";
 
 type Props = {
-    className: string
-    text: string
+    className: string;
+    text: string;
 }
 
 export default function Infomation({className, text}: Props) {
-    const [isHover, setIsHover] = useState(false)
+    const [isHover, setIsHover] = useState(false);
 
     return (
         <div className={className + " cursor-pointer " + (isHover ? "opacity-100" : "opacity-40")} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
