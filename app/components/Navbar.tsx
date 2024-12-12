@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { create } from "zustand";
-
 import { Separator } from "@/components/ui/separator"
 import { Search } from "@/components/ui/search";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import Link from 'next/link';
-
 import { WiFog } from "react-icons/wi";
 import { FaGithub } from "react-icons/fa6";
 import { cityWords } from "@/lib/cityWords";
@@ -16,12 +14,10 @@ type SearchStoreType = {
     searchSubmit: string
     setSearchSubmit: (state: string) => void
 }
-
 export const useSearchStore = create<SearchStoreType>()((set) => ({
     searchSubmit: "Thailand",
     setSearchSubmit: (state) => set({ searchSubmit: state }),
 }))
-
 export default function Navbar() {
     const [search, setSearch] = useState("");
     const {searchSubmit, setSearchSubmit} = useSearchStore();
@@ -51,7 +47,7 @@ export default function Navbar() {
   
     return (
         <div className="sticky lg:static top-0 w-full">
-            <div className="grid lg:grid-cols-2 px-4 py-2 lg:px-8 lg:py-4 bg-black space-y-2 lg:space-y-2 backdrop-filter backdrop-blur-lg bg-opacity-80">
+            <div className="grid lg:grid-cols-2 px-4 py-2 lg:px-8 lg:py-4 bg-black space-y-2 lg:space-y-2">
                 <div className="flex justify-between ">
                     <div className="flex items-center cursor-pointer">
                         <WiFog className="text-3xl h-fit"/> 
